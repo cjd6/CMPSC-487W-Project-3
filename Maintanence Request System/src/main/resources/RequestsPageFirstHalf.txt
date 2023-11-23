@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Browse Requests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+
+        img{
+            width: 200px;
+            height: 200px;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        td{
+            text-align: left;
+            vertical-align: top;
+        }
+
+        #form{
+            text-align: left;
+        }
+
+        div{
+            justify-self: center;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .oddrow{
+            background-color:#ffffff;
+        }
+
+        .evenrow{
+            background-color:#dddddd;
+        }
+
+        body{
+            background-color: #AAAAAA;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Browse Requests</h1>
+
+<form action="requestsPage" th:action="@{requestsPage}" method="get">
+    <p>
+        Sort by...
+    </p>
+    <p>
+            <label for = "aptField">Apartment Number:</label>
+            <input type="text" name="aptField" id = "aptField" th:field="*{aptField}" placeholder = "Apartment Number">
+    </p>
+
+    <p>
+        <label for="locationMenu">Issue Location:</label>
+        <select type="text" name="locationMenu" id="locationMenu" th:field="*{locationMenu}">
+            <option value="all">All</option>
+            <option value="kitchen">Kitchen</option>
+            <option value="balcony">Balcony</option>
+            <option value="bedroom">Bedroom</option>
+            <option value="office">Office</option>
+            <option value="outside">Outside</option>
+            <option value="livingRoom">Living Room</option>
+            <option value="other">Other</option>
+        </select>
+    </p>
+
+    <p>
+        <input type="checkbox" name="statusBox" id="statusBox" onchange="toggleStatusBoxes()">
+        <label for="statusBox">Status</label>
+
+        <input type="radio" name="pendingBox" id="pendingBox" onchange="uncheckClosedBox()" checked style = "visibility: hidden">
+        <label id = "pendingLabel" for="pendingBox" style = "visibility: hidden">Pending</label>
+
+        <input type="radio" name="closedBox" id="closedBox" onchange="uncheckPendingBox()" style = "visibility: hidden">
+        <label id = "closedLabel" for="closedBox" style = "visibility: hidden">Closed</label>
+    </p>
+
+    <p>
+        <label for="startDateField">Starting on: </label>
+        <input type="date" th:field="*{startDateField}\" id="startDateField" name="startDateField">
+
+        <label for="endDateField">Ending on: </label>
+        <input type="date" th:field="*{endDateField}\" id="endDateField" name="endDateField">
+    </p>
+
+    <p>
+        <input type="submit" value="Search"/>
+    </p>
+</form>

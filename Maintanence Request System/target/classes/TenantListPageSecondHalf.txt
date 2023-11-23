@@ -1,0 +1,15 @@
+<form action="/addTenantPage" th:action="@{/addTenantPage}" method="get">
+    <p>
+        <input type="submit" value="Add new Tenant" />
+    </p>
+</form>
+
+<form action="/" th:action="@{/}" method="get">
+    <p>
+        <input type="submit" value="Return to Home Screen" />
+    </p>
+</form>
+
+</body>
+
+</html>

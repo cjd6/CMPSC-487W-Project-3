@@ -1,0 +1,33 @@
+<form action="/" th:action="@{/}" method="get">
+    <p>
+        <input type="submit" value="Return to Home Screen" />
+    </p>
+</form>
+
+<script>
+    function uncheckPendingBox(){
+        document.getElementById("pendingBox").checked = false;
+    }
+
+    function uncheckClosedBox(){
+        document.getElementById("closedBox").checked = false;
+    }
+
+    function toggleStatusBoxes(){
+        if (document.getElementById("statusBox").checked){
+                document.getElementById("pendingBox").style.visibility = "visible";
+                document.getElementById("closedBox").style.visibility = "visible";
+                document.getElementById("pendingLabel").style.visibility = "visible";
+                document.getElementById("closedLabel").style.visibility = "visible";
+        } else {
+                document.getElementById("pendingBox").style.visibility = "hidden";
+                document.getElementById("closedBox").style.visibility = "hidden";
+                document.getElementById("pendingLabel").style.visibility = "hidden";
+                document.getElementById("closedLabel").style.visibility = "hidden";
+        }
+    }
+</script>
+
+</body>
+
+</html>

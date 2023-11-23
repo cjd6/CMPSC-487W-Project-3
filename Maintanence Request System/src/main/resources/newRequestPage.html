@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>New Request</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+        p{
+            text-align: center;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        td{
+            text-align: left;
+            vertical-align: top;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body{
+            background-color: #AAAAAA;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>File New Request</h1>
+
+<form action="/addRequest" th:action="@{/addRequest}" method="get">
+    <p>
+        <label for="idField"></label>
+        <input type="text" th:field="*{idField}" id="idField" name="idField" placeholder="Your tenant id">
+    </p>
+
+    <p>
+    <label for="locationMenu">Issue Location:</label>
+    <select type="text" name="locationMenu" id="locationMenu" th:field="*{locationMenu}">
+        <option value="kitchen">Kitchen</option>
+        <option value="balcony">Balcony</option>
+        <option value="bedroom">Bedroom</option>
+        <option value="office">Office</option>
+        <option value="outside">Outside</option>
+        <option value="livingRoom">Living Room</option>
+        <option value="other">Other</option>
+    </select>
+    </p>
+
+    <p>
+        <label for="descField"></label>
+        <textarea rows="10" cols="50" th:field="*{description}"
+                  id="descField" name="descField" placeholder="Description"></textarea>
+    </p>
+    <p>
+        <label for="urlField"></label>
+        <input type="text" width="200px" height="200px" th:field="*{imageURL}"
+               id="urlField" name="urlField" placeholder="Image URL (optional)">
+    <p>
+        <input type="submit" onclick="update()" value="Submit Request">
+    </p>
+</form>
+
+<form action="/" th:action="@{/}" method="get">
+    <p>
+        <input type="submit" value="Return to Home Screen">
+    </p>
+</form>
+
+<script>
+    function update(){
+        document.getElementById("output").innerHTML = "Request Submitted.";
+    }
+</script>
+
+</body>
+
+</html>

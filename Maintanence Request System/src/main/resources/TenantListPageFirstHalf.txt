@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Browse Tenants</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        td{
+            text-align: left;
+            vertical-align: top;
+        }
+
+        #form{
+            text-align: left;
+        }
+
+        div{
+            justify-self: center;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .oddrow{
+            background-color:#ffffff;
+        }
+
+        .evenrow{
+            background-color:#dddddd;
+        }
+
+        body{
+            background-color: #AAAAAA;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Browse Tenants</h1>
+
+<form action="/tenantListPage" th:action="@{/tenantListPage}" method="get">
+    <p>
+        <label for = "idField"></label>
+        <input type="text" name="id" id = "idField" th:field="*{id}" placeholder = "Search id...">
+        <input type="submit" value="Search" />
+    </p>
+</form>
